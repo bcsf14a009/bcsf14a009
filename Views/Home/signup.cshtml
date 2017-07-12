@@ -1,0 +1,137 @@
+﻿@model internetBanking.Models.User
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+	<title>Sign Up - UBL</title>
+
+	<!-- Meta-Tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="ePlanner, Sign Up form, Manage events at your own, bringing people together, " />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //Meta-Tags -->
+
+	<!-- Custom-Styleheet-Links -->
+		<link rel="stylesheet" href="~/Content/Signup/style.css" 		 type="text/css" media="all">
+		<link rel="stylesheet" href="~/Content/Signup/animate-custom.css" type="text/css" media="all">
+	<!-- //Custom-Styleheet-Links -->
+       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                dateFormat: 'dd-MM-yy'
+            });
+        });
+    </script>
+	<!-- Fonts -->
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" type="text/css" media="all">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" 		  type="text/css" media="all">
+	<!-- //Fonts -->
+
+</head>
+<!-- //Head -->
+
+
+<style>
+    .myLabel{
+        color:yellow;
+        font-size:15px;
+        margin-right:10px;
+        float:right;
+    }
+</style>
+
+
+
+
+<!-- Body -->
+<body>
+
+	<h1 class="w3layouts agileits">Let's get started</h1>
+
+	<div class="container w3layouts agileits">
+
+		<div class="content-left w3layouts agileits">
+			<img src="~/images/SignUp/background.jpg" style ="height:882px;" alt ="W3layouts Agileits">
+			
+		
+		</div>
+
+		<div class="content-right w3layouts agileits">
+			<section>
+				<div id="container_demo">
+					<div id="wrapper">
+						<div id="register" class="animate w3layouts agileits form">
+							<h2>Sign up</h2>
+                            <a href="Login">
+                                @Html.ValidationMessage("Error", new { @class = "myLabel" })
+                                @Html.ValidationMessage("Success", new { @class = "myLabel" })
+                            </a>
+
+                            @using (Html.BeginForm("SignUp", "Home", FormMethod.Post, new { autocomplete = "on" }))
+                            {
+                                @Html.LabelFor(model => model.name)
+                                @Html.ValidationMessageFor(model => model.name, null, new { @class = "myLabel" })
+                                @Html.TextBoxFor(model => model.name, new{ Class="name w3layouts agileits"})
+
+                                @Html.LabelFor(model => model.mobileNum)
+                                @Html.ValidationMessageFor(model => model.mobileNum, null, new { @class = "myLabel" })
+                                @Html.TextBoxFor(model => model.mobileNum, new { Class = "phone w3layouts agileits" })
+
+                                @Html.LabelFor(model => model.email)
+                                @Html.ValidationMessageFor(model => model.email, null, new { @class = "myLabel" })
+                                @Html.TextBoxFor(model => model.email)
+
+                                @Html.LabelFor(model => model.password)
+                                @Html.ValidationMessageFor(model => model.password, null, new { @class = "myLabel" })
+                                @Html.PasswordFor(model => model.password)
+
+                                @Html.LabelFor(model => model.cnic)
+                                @Html.ValidationMessageFor(model => model.cnic, null, new { @class = "myLabel" })
+                                @Html.TextBoxFor(model => model.cnic, new{ Class = "cnic w3layouts agileits"})
+
+                                @Html.LabelFor(model => model.accountType)
+                                @Html.ValidationMessageFor(model => model.accountType, null, new { @class = "myLabel" })
+                                @Html.TextBoxFor(model => model.accountType, new{ Class = "accountType w3layouts agileits"})
+                                
+                                
+                              
+                                
+                                @Html.LabelFor(model => model.dob)
+                                @Html.ValidationMessageFor(model => model.dob, null, new { @class = "myLabel" })
+                                @Html.TextBoxFor(model => model.dob, new{ Class = "dob w3layouts agileits" , id = "datepicker"})
+
+                                <div class="send-button w3layouts agileits">
+                                    <input type="submit" value="SIGN UP">
+                                </div>
+
+                                <p class="change_link w3layouts agileits">
+                                    Already a member? <a href="Login" class="to_register">Sign In</a>
+                                </p>
+                                <div class="clear"></div>
+                            }
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="footer w3layouts agileits">
+		<p> &copy;2017 UBL. All Rights Reserved</p>
+	</div>
+
+</body>
+<!-- //Body -->
+
+</html>
