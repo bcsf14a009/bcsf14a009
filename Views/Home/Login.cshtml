@@ -1,0 +1,114 @@
+﻿@model internetBanking.Models.User
+
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+<head>
+
+    <title>Login - UBL</title>
+
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="UBL, Sign Up form, Manage events at your own, bringing people together, " />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //Meta-Tags -->
+    <!-- Custom-Styleheet-Links -->
+    <link rel="stylesheet" href="~/Content/Signup/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/Signup/animate-custom.css" type="text/css" media="all">
+    <!-- //Custom-Styleheet-Links -->
+    <!-- Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" type="text/css" media="all">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700" type="text/css" media="all">
+    <!-- //Fonts -->
+
+</head>
+<!-- //Head -->
+
+
+<style>
+    .myLabel {
+        color: yellow;
+        font-size: 15px;
+        margin-right: 10px;
+        float: right;
+    }
+</style>
+
+
+
+
+<!-- Body -->
+<body>
+
+    <h1 class="w3layouts agileits">Login to Proceed</h1>
+
+    <div class="container w3layouts agileits">
+
+        <div class="content-left w3layouts agileits">
+            <img src="~/images/SignUp/background.jpg" style ="height:543px;" alt="W3layouts Agileits">
+           
+          
+        </div>
+
+        <div class="content-right w3layouts agileits">
+            <section>
+                <div id="container_demo">
+                    <div id="wrapper">
+                        <div id="login" class="animate w3layouts agileits form">
+                            <h2 class="w3layouts agileits">Sign In</h2>
+                            @Html.ValidationMessage("Pass", new { @class = "myLabel" })
+                            <a href="SignUp">
+                                @Html.ValidationMessage("Error", new { @class = "myLabel" })
+                            </a>
+                            @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { autocomplete = "on" }))
+                            {
+                                @Html.LabelFor(model => model.email)
+                                @Html.ValidationMessageFor(model => model.email, null, new { @class = "myLabel" })
+                                @Html.TextBoxFor(model => model.email)
+
+                                @Html.LabelFor(model => model.password)
+                                @Html.ValidationMessageFor(model => model.password, null, new { @class = "myLabel" })
+                                @Html.PasswordFor(model => model.password, new { Class = "phone w3layouts agileits" })
+
+                                <div class="send-button w3layouts agileits">
+                                    <input type="submit" value="SIGN IN">
+                                    <div class="clear"></div>
+                                </div>
+                                <p class="change_link w3layouts agileits">
+                                    Don't have an account? <a href="signup" class="to_register">Sign Up!</a>
+                                </p>
+                                <div class="clear"></div>
+                            }
+                            <div>
+                                <a href="~/Home/forget" style="color:yellow;">Forget Password</a>
+                            </div>
+
+                            @*<div class="social-icons w3layouts agileits">
+                                <p>Find us on</p>
+                                <ul>
+                                    <li class="fb w3ls w3layouts agileits"><a href="#"><span class="icons w3layouts agileits"></span><span class="text w3layouts agileits">Facebook</span></a></li>
+                                    <li class="twt w3ls w3layouts agileits"><a href="#"><span class="icons w3layouts agileits"></span><span class="text w3layouts agileits">Twitter</span></a></li>
+                                    <div class="clear"></div>
+                                </ul>
+                            </div>*@
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="footer w3layouts agileits">
+        <p> &copy;2017 UBL. All Rights Reserved</p>
+    </div>
+
+</body>
+<!-- //Body -->
+
+</html>
